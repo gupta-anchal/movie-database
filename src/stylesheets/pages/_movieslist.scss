@@ -23,6 +23,14 @@
       font-weight: 400;
     }
   }
+  &:hover {
+    a {
+      .editIcon {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
   @media screen and (max-width: $sm) {
     padding: 0;
     img {
@@ -38,14 +46,14 @@
   display: flex;
   justify-content: space-between;
   a {
-      align-self: flex-end;
-      margin-bottom: 5px;
-      color: #fff;
+    align-self: flex-end;
+    margin-bottom: 5px;
+    color: #fff;
     .editIcon {
       opacity: 0;
     }
   }
-  &:hover {
+  @media screen and (max-width: $md) {
     a {
       .editIcon {
         opacity: 1;

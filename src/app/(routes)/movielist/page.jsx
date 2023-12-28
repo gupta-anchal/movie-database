@@ -104,7 +104,7 @@ const Movielist = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+              )).reverse()}
           </div>
           <ReactPaginate
             breakLabel="..."

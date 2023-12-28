@@ -52,7 +52,8 @@ const AddMovieForm = () => {
         "Error adding movie:",
         error.response?.data || error.message
       );
-      showErrorToast("Error adding movie");
+      showErrorToast("Error adding movie :", error.response?.data?.message);
+      setIsLoading(false);
     }
   };
 
@@ -93,7 +94,7 @@ const AddMovieForm = () => {
                     </div>
                     {file
                       ? `File name: ${file[0].name}`
-                      : "Drop other image here"}
+                      : "Drop an image here"}
                   </div>
                 </div>
               </div>

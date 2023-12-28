@@ -52,6 +52,11 @@ const EditMovieForm = () => {
   const handleEditMovie = async () => {
     setIsLoading(true);
     try {
+      // if(!title.trim() || !publishingYear.trim()) {
+      //   showErrorToast("Title and Year are required fields.");
+      //   setIsLoading(false);
+      //   return;
+      // }
       // Validate the publishingYear
       if (!isValidYear(publishingYear)) {
         showErrorToast("Invalid year format. Please enter a 4-digit year.");
