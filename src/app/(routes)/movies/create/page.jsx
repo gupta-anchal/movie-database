@@ -10,7 +10,7 @@ import { showSuccessToast, showErrorToast } from '../../../../../toastConfig';
 
 const AddMovieForm = () => {
   const [title, setTitle] = useState("");
-  const [publishingYear, setPublishingYear] = useState(null);
+  const [publishingYear, setPublishingYear] = useState("");
   const fileTypes = ["JPEG", "PNG", "GIF"];
   const [file, setFile] = useState(null);
   const router = useRouter();
@@ -25,6 +25,16 @@ const AddMovieForm = () => {
   const handleAddMovie = async () => {
     setIsLoading(true);
     try {
+      if (title.trim().length === 0) {
+        showErrorToast("Title is required.");
+        setIsLoading(false);
+        return;
+      }
+      if (publishingYear.trim().length === 0) {
+        showErrorToast("Publishing Year is required.");
+        setIsLoading(false);
+        return;
+      }
       if (!isValidYear(publishingYear)) {
         showErrorToast("Invalid year format. Please enter a 4-digit year.");
         setIsLoading(false);

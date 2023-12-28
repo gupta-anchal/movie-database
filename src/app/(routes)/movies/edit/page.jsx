@@ -52,11 +52,16 @@ const EditMovieForm = () => {
   const handleEditMovie = async () => {
     setIsLoading(true);
     try {
-      // if(!title.trim() || !publishingYear.trim()) {
-      //   showErrorToast("Title and Year are required fields.");
-      //   setIsLoading(false);
-      //   return;
-      // }
+      if (title.trim().length === 0) {
+        showErrorToast("Title is required.");
+        setIsLoading(false);
+        return;
+      }
+      if (publishingYear.trim().length === 0) {
+        showErrorToast("Publishing Year is required.");
+        setIsLoading(false);
+        return;
+      }
       // Validate the publishingYear
       if (!isValidYear(publishingYear)) {
         showErrorToast("Invalid year format. Please enter a 4-digit year.");
