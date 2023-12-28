@@ -15,7 +15,8 @@ const Movielist = () => {
       try {
         const response = await fetch("/api/movies/list");
         const data = await response.json();
-        setMovies(data?.movies);
+        const newData = await data?.movies?.reverse();
+        setMovies(newData);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching movies:", error);
@@ -104,7 +105,7 @@ const Movielist = () => {
                     </div>
                   </div>
                 </div>
-              )).reverse()}
+              ))}
           </div>
           <ReactPaginate
             breakLabel="..."
