@@ -57,7 +57,7 @@ const Movielist = () => {
           <div className="page-heading">
             <h1>
               My movies
-              <Link href="/AddNewMovie">
+              <Link href="/movies/create">
                 <img src="/add-white.svg" alt="" />
               </Link>
             </h1>
@@ -94,7 +94,7 @@ const Movielist = () => {
                         </div>
                       </div>
                         <Link
-                          href={`/EditMovie?id=${encodeURIComponent(movie._id)}`}
+                          href={`/movies/edit?id=${encodeURIComponent(movie._id)}`}
                         >
                           {" "}
                           <div className="editIcon">

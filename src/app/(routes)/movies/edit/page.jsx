@@ -2,11 +2,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { FileUploader } from "react-drag-drop-files";
-import downloadBtn from "../../../assets/images/dowload.svg";
+import downloadBtn from "../../../../assets/images/dowload.svg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ColorRing } from "react-loader-spinner";
-import { showSuccessToast, showErrorToast } from '../../../../toastConfig';
+import { showSuccessToast, showErrorToast } from '../../../../../toastConfig';
 
 const EditMovieForm = () => {
   const [title, setTitle] = useState("");
@@ -70,7 +70,7 @@ const EditMovieForm = () => {
       if (response.status === 200) {
         showSuccessToast("Movie updated successfully");
         setIsLoading(false);
-        router.push("/movielist", { scroll: false });
+        router.push("/movies/list", { scroll: false });
       } else {
         showErrorToast("Failed to update  movie");
         setIsLoading(false);
@@ -85,7 +85,7 @@ const EditMovieForm = () => {
   };
 
   const handleCancel = () => {
-    router.push("/movielist", { scroll: false });
+    router.push("/movies/list", { scroll: false });
   };
 
   return (

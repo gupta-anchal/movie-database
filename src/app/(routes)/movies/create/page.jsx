@@ -2,11 +2,11 @@
 import { useState } from "react";
 import axios from "axios";
 import { FileUploader } from "react-drag-drop-files";
-import downloadBtn from "../../../assets/images/dowload.svg";
+import downloadBtn from "../../../../assets/images/dowload.svg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ColorRing } from "react-loader-spinner";
-import { showSuccessToast, showErrorToast } from '../../../../toastConfig';
+import { showSuccessToast, showErrorToast } from '../../../../../toastConfig';
 
 const AddMovieForm = () => {
   const [title, setTitle] = useState("");
@@ -39,6 +39,7 @@ const AddMovieForm = () => {
         setIsLoading(false);
         setTitle("");
         setPublishingYear('');
+        router.push("/movies/list", { scroll: false });
         // You can add additional logic, such as resetting form fields or updating state
       } else {
         showErrorToast("Failed to add movie");
@@ -58,7 +59,7 @@ const AddMovieForm = () => {
   };
 
   const handleCancel = () => {
-    router.push("/movielist", { scroll: false });
+    router.push("/movies/list", { scroll: false });
   };
 
   return (

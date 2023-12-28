@@ -9,7 +9,7 @@ export default function Home() {
                 <a className="btn btnPrimary w-100" href="/login">Login</a>
               </div>
               <div className="col-md-6">
-                <a className="btn btnPrimary w-100" href="/movielist">Movie List</a>
+                <a className="btn btnPrimary w-100" href="/movies/list">Movie List</a>
               </div>
             </div>
           </div>

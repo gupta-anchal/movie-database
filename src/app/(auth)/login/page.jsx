@@ -34,7 +34,7 @@ const Login = () => {
     try {
       const response = await axios.post("/api/login", { email, password });
       showSuccessToast('Logged in successfully')
-      router.push("/movielist", { scroll: false });
+      router.push("/movies/list", { scroll: false });
       console.log(response.data);
     } catch (error) {
       console.error("Login failed:", error.response?.data || error.message);
