@@ -5,10 +5,14 @@ import ReactPaginate from "react-paginate";
 import Link from "next/link";
 import { ColorRing } from "react-loader-spinner";
 import { FaEdit } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+
 
 const Movielist = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -27,7 +31,6 @@ const Movielist = () => {
   }, []);
 
   const [itemOffset, setItemOffset] = useState(0);
-
   const itemsPerPage = 8;
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = movies?.slice(itemOffset, endOffset);
@@ -37,6 +40,10 @@ const Movielist = () => {
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % movies?.length;
     setItemOffset(newOffset);
+  };
+
+  const handleCreateNewRoute = () => {
+    router.push("/movies/create", { scroll: true });
   };
 
   return (
@@ -123,7 +130,7 @@ const Movielist = () => {
         <div className="no-movies">
           <div>
             <h1>Your movie list is empty</h1>
-            <button className="btn btnPrimary">Add a new movie</button>
+            <button className="btn btnPrimary" onClick={handleCreateNewRoute}>Add a new movie</button>
           </div>
         </div>
       )}
